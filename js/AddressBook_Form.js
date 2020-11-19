@@ -1,3 +1,5 @@
+let addressBookContactJSONObject = {};
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const fullname = document.querySelector('#fullname');
     const textError = document.querySelector('.text-error');
@@ -44,3 +46,30 @@ window.addEventListener('DOMContentLoaded', (event) => {
         }
     });
 });
+
+const save = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    try {
+        setAddressBookContactObject();
+        createAndUpdateStorage();
+        resetForm();
+        window.location.replace(site_properties.home_page);
+    } catch (e) {
+        return;
+    }
+}
+
+const setAddressBookContactObject = () => {
+    addressBookContactJSONObject._fullName = getInputValueById('#fullname');
+    addressBookContactJSONObject._address = getInputValueById('#address');
+    addressBookContactJSONObject._phoneNumber = getInputValueById('#tel');
+    addressBookContactJSONObject._city = getInputValueById('#city');
+    addressBookContactJSONObject._state = getInputValueById('#state');
+    addressBookContactJSONObject._zip = getInputValueById('#zip');
+}
+
+const getInputValueById = (id) => {
+    let value = document.querySelector(id).value;
+    return value;
+}
