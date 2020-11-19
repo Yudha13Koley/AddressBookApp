@@ -73,3 +73,64 @@ const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
 }
+
+const createAndUpdateStorage = () => {
+    let contactList = JSON.parse(localStorage.getItem("addressBookContactList"));
+    if (contactList) {
+        let contactData = contactList.find(contact => contact._id == addressBookContactJSONObject._id);
+        if (!contactData) {
+            contactList.push(createAddressBookContactData());
+        } else {
+            const index = contactList.map(contact => contact._id).indexOf(contactData._id);
+            contactList.splice(index, 1, createAddressBookContactData(contactData._id));
+        }
+    } else {
+        contactList = [createAddressBookContactData()];
+    }
+    localStorage.setItem("addressBookContactList", JSON.stringify(contactList));
+}
+
+const createAddressBookContactData = (id) => {
+    let contactData = new AddressBookContact();
+    if (!id) contactData.id = createNewContactId();
+    else contactData.id = id;
+    setContactData(contactData);
+    return contactData;
+}
+
+const setContactData = (contactData) => {
+    try {
+        contactData.fullName = addressBookContactJSONObject._fullName;
+    } catch (e) {
+        setTextValue('.text-error', e);
+        throw e;
+    }
+    try {
+        contactData.address = addressBookContactJSONObject._address;
+    } catch (e) {
+        setTextValue('.address-error', e);
+        throw e;
+    }
+    try {
+        contactData.phoneNumber = addressBookContactJSONObject._phoneNumber;
+    } catch (e) {
+        setTextValue('.mobno-error', e);
+        throw e;
+    }
+    contactData.city = addressBookContactJSONObject._city;
+    contactData.state = addressBookContactJSONObject._state;
+    contactData.zip = addressBookContactJSONObject._zip;
+    alert(contactData.toString());
+}
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+}
+
+const createNewContactId = () => {
+    let contactId = localStorage.getItem("ContactID");
+    contactId = !contactId ? 1 : (parseInt(contactId) + 1).toString();
+    localStorage.setItem("ContactID", contactId);
+    return contactId;
+}
