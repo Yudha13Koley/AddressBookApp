@@ -24,7 +24,7 @@ class AddressBookContact {
     }
     set address(address) {
         let words = address.split(" ");
-        let addressPattern = RegExp('([A-Z a-z 0-9]{3,})+');
+        let addressPattern = RegExp('([A-Z a-z 0-9 \/]{3,})+');
         for (const word of words) {
             if (!addressPattern.test(word))
                 throw 'Invalid Address !';
@@ -63,7 +63,7 @@ class AddressBookContact {
 
     //Methods
     toString() {
-        return '[ FullName : ' + this.fullName + ' Address : '
+        return '[ ID : ' + this.id + ' FullName : ' + this.fullName + ' Address : '
             + this.address + ' City : ' + this.city + ' State : ' + this.state + ' Zip : ' + this.zip +
             ' Phone Number : ' + this.phoneNumber + ' ]';
     }

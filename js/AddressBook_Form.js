@@ -134,3 +134,17 @@ const createNewContactId = () => {
     localStorage.setItem("ContactID", contactId);
     return contactId;
 }
+
+const resetForm = () => {
+    setValue('#fullname', '');
+    setValue('#address', '');
+    setValue('#tel', '');
+    setValue('#city', '');
+    setValue('#state', '');
+    setValue('#zip', '');
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+}
