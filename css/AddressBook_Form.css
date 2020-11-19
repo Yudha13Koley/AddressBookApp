@@ -82,8 +82,96 @@ body {
 }
 
 .cancel-img {
-    max-width: 30px;
-    max-height: 30px;
+    max-width: 50px;
+    max-height: 50px;
     cursor: pointer;
     margin-left: 200px;
+}
+
+.row-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    border: 0px solid green;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.label {
+    min-width: 140px;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.text {
+    font-size: 16px;
+    color: black;
+    opacity: 1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.select-items {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    border: 0px solid green;
+    width: 80%;
+    margin-left: 10%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+    font: normal normal normal 16px Arial;
+    letter-spacing: 0px;
+    color: black;
+    background-color: transparent;
+    width: 100%;
+}
+
+.buttonParent {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-right: 10%;
+}
+
+.button {
+    font-size: 20px;
+    font-family: Arial;
+    letter-spacing: 0px;
+    color: black;
+    opacity: 1;
+    background: transparent;
+    border: 1px solid navy;
+    font-weight: 400;
+    min-width: 140px;
+    padding: 7px 7px;
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.submitButton {
+    background-color: lightgreen;
+    margin-right: 30px;
+}
+
+.selectDiv {
+    margin-right: 10px;
 }

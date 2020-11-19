@@ -28,6 +28,55 @@
                             alt="Cancel Icon"></a>
                 </div>
             </div>
+            <div class="row-content">
+                <label for="fullname" class="label text">Full Name</label>
+                <input type="text" class="input" id="fullname" name="fullname" required>
+                <error-output class="text-error" for="text"></error-output>
+            </div>
+            <div class="row-content">
+                <label for="tel" class="label text">Phone Number</label>
+                <input type="tel" id="tel" name="tel" class="input">
+                <error-output class="mobno-error" for="tel"></error-output>
+            </div>
+            <div class="row-content">
+                <label for="notes" class="label text">Address</label>
+                <textarea class="input text" name="notes" id="address" style="height: 100px;"></textarea>
+            </div>
+            <div class="select-items">
+                <div name="citySelect" id="citySelect" class="selectDiv">
+                    <label for="city" class="label text">City</label>
+                    <select name="city" id="city">
+                        <option value="" disabled selected hidden>Select City</option>
+                        <option value="Howrah">Howrah</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Murshidabad">Murshidabad</option>
+                    </select>
+                </div>
+                <div name="stateSelect" id="stateSelect" class="selectDiv">
+                    <label for="state" class="label text">State</label>
+                    <select name="state" id="state">
+                        <option value="" disabled selected hidden>Select State</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Karnataka">Karnataka</option>
+                    </select>
+                </div>
+                <div name="zipSelect" id="zipSelect">
+                    <label for="zip" class="label text">ZipCode</label>
+                    <select name="zip" id="zip">
+                        <option value="" disabled selected hidden>Select ZipCode</option>
+                        <option value="711102">711102</option>
+                        <option value="700032">700032</option>
+                        <option value="745632">745632</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttonParent">
+                <div class="submit-reset">
+                    <button type="submit" class="button submitButton">Add</button>
+                    <button type="reset" class="resetButton button">Reset</button>
+                </div>
+            </div>
         </form>
     </div>
 </body>
