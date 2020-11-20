@@ -33,3 +33,13 @@ const createInnerHtml = () => {
     }
     document.querySelector('#display').innerHTML = innerHtml;
 }
+
+const remove = (node) => {
+    let contact = contactListLocalStorage.find(contactInList => contactInList._id == node.id);
+    if (!contact) return;
+    const index = contactListLocalStorage.map(contactInList => contactInList._id).indexOf(contact._id);
+    contactListLocalStorage.splice(index, 1);
+    localStorage.setItem("addressBookContactList", JSON.stringify(contactListLocalStorage));
+    document.querySelector(".contact-count").textContent = contactListLocalStorage.length;
+    createInnerHtml();
+}
