@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     contactListLocalStorage = getContactListFromLocalStorage();
     createInnerHtml();
     document.querySelector(".contact-count").textContent = contactListLocalStorage.length;
+    localStorage.removeItem('editContact');
 });
 
 const getContactListFromLocalStorage = () => {
@@ -42,4 +43,11 @@ const remove = (node) => {
     localStorage.setItem("addressBookContactList", JSON.stringify(contactListLocalStorage));
     document.querySelector(".contact-count").textContent = contactListLocalStorage.length;
     createInnerHtml();
+}
+
+const update = (node) => {
+    let contact = contactListLocalStorage.find(contactInList => contactInList._id == node.id);
+    if (!contact) return;
+    localStorage.setItem('editContact', JSON.stringify(contact));
+    window.location.replace(site_properties.add_Contact_Details_Page);
 }
